@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply bg-peach-100 font-sans text-ink antialiased; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-clay; }
+  input, select, textarea, button { font-family: inherit; }
+}
+
+@layer components {
+  .card { @apply rounded-2xl border border-peach-200 bg-white; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-brand text-ink hover:bg-brand-dark; }
+  .btn-outline { @apply btn border border-peach-300 bg-white text-ink hover:bg-peach-50; }
+  .field { @apply w-full rounded-lg border border-peach-300 bg-peach-100/60 px-3 py-2.5 text-sm text-ink placeholder:text-clay/60 focus:border-clay focus:bg-white focus:outline-none focus:ring-2 focus:ring-clay/20; }
+  .label { @apply mb-1.5 block text-xs font-semibold text-ink; }
+  .th { @apply px-4 py-3 text-left text-xs font-semibold text-ink; }
+  .td { @apply px-4 py-3.5 text-sm text-ink/90; }
+}
+
+@keyframes shake { 10%,90% { transform: translateX(-2px) } 20%,80% { transform: translateX(3px) } 30%,50%,70% { transform: translateX(-5px) } 40%,60% { transform: translateX(5px) } }
+.shake { animation: shake .45s; }
+@media (prefers-reduced-motion: reduce) { .shake { animation: none; } }

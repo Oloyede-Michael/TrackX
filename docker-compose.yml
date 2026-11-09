@@ -1,0 +1,15 @@
+# Optional: spins up PostgreSQL for local development
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: trackx
+      POSTGRES_PASSWORD: trackx
+      POSTGRES_DB: trackx
+    ports:
+      - "5432:5432"
+    volumes:
+      - trackx_pg:/var/lib/postgresql/data
+volumes:
+  trackx_pg:
